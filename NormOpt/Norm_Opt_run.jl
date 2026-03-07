@@ -59,7 +59,7 @@ function main()
 
     # Tail index for Multivariate Normal distribution
     α = 2.0
-    β = 0.05
+    β = 0.01
 
     # Number of samples for out-of-sample violation evaluation
     num_eval_samples = ceil(Int, 10^4 / ε)
