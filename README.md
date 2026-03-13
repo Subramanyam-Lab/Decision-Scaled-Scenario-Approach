@@ -139,7 +139,7 @@ Each benchmark folder should contain a `submit.sh` script designed to run the ex
                        export MOSEK_HOME=/path/to/your/mosek/11.0
                        export MOSEKLM_LICENSE_FILE=/path/to/your/mosek.lic
 
-                       # Run the experiment using the unified environment
+                       # Run the experiment
                        julia --project=.. --threads=\$SLURM_CPUS_PER_TASK Norm_Opt_run.jl --epsilon=${epsilon} --s=${s} --trial=\$SLURM_ARRAY_TASK_ID"
            
            echo "Submitted array job: ${job_name}"
