@@ -2,15 +2,13 @@
 
 This repository contains the data, source code, and execution scripts to reproduce the numerical experiments presented in the paper **Decision-Scaled Scenario Approach for Rare Chance-Constrained Optimization**. 
 
-Our proposed decision-scaling method significantly reduces the sample size requirements for the scenario approach in the rare-event regime, while guaranteeing asymptotic feasibility. We provide everything needed to reproduce our results across three benchmark problems: Portfolio Optimization, Reliability-based Short Column Design, and Norm Optimization.
+Our proposed decision-scaling method significantly reduces the sample size requirements for the scenario approach in the rare-event regime, while guaranteeing asymptotic feasibility. We provide everything needed to reproduce our results across three benchmark problems: Norm Optimization, Portfolio Optimization, and Short Column Design Problems. 
 
 ## Table of Contents
 - [Repository Structure](#repository-structure)
 - [Installation \& Requirements](#installation--requirements)
 - [Reproducing the Results](#reproducing-the-results)
 - [Citation](#citation)
-
-## Repository Structure
 
 ## Repository Structure
 
