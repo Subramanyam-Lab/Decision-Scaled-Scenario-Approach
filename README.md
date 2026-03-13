@@ -12,26 +12,28 @@ Our proposed decision-scaling method significantly reduces the sample size requi
 
 ## Repository Structure
 
+## Repository Structure
+
 ```text
 Decision-Scaled-Scenario-Approach/
-├── Project.toml                 # Julia project dependencies
+├── Project.toml                 # Unified Julia project dependencies
 ├── Manifest.toml                # Exact versions of all Julia packages for reproducibility
-├── precompile.sh                # SLURM script to instantiate and precompile packages
+├── precompile.sh                # SLURM script (Not in repo; create this file using the template below)
+│
+├── NormOpt/                     # Norm Optimization Benchmark
+│   ├── Norm_Opt_run.jl          # Main execution script
+│   ├── functions.jl             # Helper functions
+│   └── submit.sh                # SLURM script (Not in repo; create this file using the template below)
 │
 ├── Portfolio/                   # Portfolio Optimization Benchmark
-│   ├── Portfolio_run.jl         # Main execution script
-│   ├── functions.jl             # Helper functions
-│   └── submit.sh                # SLURM submission script for array jobs
-│
-├── ShortColumn/                 # Reliability-based Short Column Design Benchmark
-│   ├── ShortColumn_run.jl
+│   ├── Portfolio_run.jl
 │   ├── functions.jl
-│   └── submit.sh
+│   └── submit.sh                # SLURM script (Not in repo; create this file using the template below)
 │
-└── NormOpt/                     # Norm Optimization Benchmark
-    ├── Norm_Opt_run.jl
+└── ShortColumn/                 # Reliability-based Short Column Design Benchmark
+    ├── ShortColumn_run.jl
     ├── functions.jl
-    └── submit.sh
+    └── submit.sh                # SLURM script (Not in repo; create this file using the template below)
 ```
 
 ## Installation & Requirements
