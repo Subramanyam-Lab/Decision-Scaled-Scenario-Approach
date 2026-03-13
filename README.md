@@ -14,9 +14,9 @@ Our proposed decision-scaling method significantly reduces the sample size requi
 
 ```text
 Decision-Scaled-Scenario-Approach/
-├── Project.toml                 # Unified Julia project dependencies
+├── Project.toml                 # Julia project dependencies
 ├── Manifest.toml                # Exact versions of all Julia packages for reproducibility
-├── precompile.sh                # Unified SLURM script to instantiate and precompile packages
+├── precompile.sh                # SLURM script to instantiate and precompile packages
 │
 ├── Portfolio/                   # Portfolio Optimization Benchmark
 │   ├── Portfolio_run.jl         # Main execution script
@@ -131,19 +131,7 @@ Each benchmark folder contains a `submit.sh` script designed to run the experime
                   --array=1-100%10 \
                   --output=logfiles/${job_name}_%a.out \
                   --error=logfiles/${job_name}_%a.err \
-                  --wrap="
-                       # Reset environment and load required modules
-                       module purge
-                       module load julia/1.11.2 gurobi
-
-                       # Set solver and package paths
-                       export JULIA_DEPOT_PATH=/path/to/your/.julia/depot
-                       export MOSEK_HOME=/path/to/your/mosek/11.0
-                       export MOSEKLM_LICENSE_FILE=/path/to/your/mosek.lic
-
-                       # Run the experiment using the unified root environment
-                       julia --project=.. --threads=\$SLURM_CPUS_PER_TASK Norm_Opt_run.jl --epsilon=${epsilon} --s=${s} --trial=\$SLURM_ARRAY_TASK_ID
-                  "
+                  --wrap="module purge && module load julia/1.11.2 && export JULIA_DEPOT_PATH=/path/to/your/.julia/depot && export MOSEK_HOME=/path/to/your/mosek/11.0 && export MOSEKLM_LICENSE_FILE=/path/to/your/mosek.lic && julia --project=.. --threads=\$SLURM_CPUS_PER_TASK Norm_Opt_run.jl --epsilon=${epsilon} --s=${s} --trial=\$SLURM_ARRAY_TASK_ID"
            
            echo "Submitted array job: ${job_name}"
            sleep 2
