@@ -14,7 +14,7 @@ Our proposed decision-scaling method significantly reduces the sample size requi
 
 ```text
 Decision-Scaled-Scenario-Approach/
-├── Project.toml                 # Unified Julia project dependencies
+├── Project.toml                 # Julia project dependencies
 ├── Manifest.toml                # Exact versions of all Julia packages for reproducibility
 ├── precompile.sh                # SLURM script (Not in repo; create this file using the template below)
 │
@@ -91,7 +91,7 @@ We provide a Julia environment to ensure reproducibility.
 
 ## Reproducing the Results
 
-Each benchmark folder contains a `submit.sh` script designed to run the experiments across different risk tolerance levels ($\varepsilon$) and scaling parameters ($s$) using SLURM array jobs.
+Each benchmark folder should contain a `submit.sh` script designed to run the experiments across different risk tolerance levels ($\varepsilon$) and scaling parameters ($s$) using SLURM array jobs.
 
 ### Running via SLURM
 
@@ -100,9 +100,7 @@ Each benchmark folder contains a `submit.sh` script designed to run the experime
    cd NormOpt
    ```
 
-2. **Important:** Before running, you must edit the `submit.sh` file to update the `#SBATCH` directives (`partition`, `account`) and the `export` paths for your local Julia and solver installations. 
-
-   Below is the template of the `submit.sh` script provided in the repository. Note the use of `--project=..` to point to the unified environment in the root directory.
+2. **Important:** First, you should create a `precompile.sh` script with the template below. Before running, you must edit the `#SBATCH` directives (`partition`, `account`) and the `export` paths for your local Julia and solver installations. 
 
    ```bash
    #!/bin/bash
@@ -147,7 +145,7 @@ Each benchmark folder contains a `submit.sh` script designed to run the experime
 ### Output
 The execution scripts will automatically create two subdirectories within each benchmark folder:
 * `logfiles/`: Contains the standard output and error logs (`.out`, `.err`) for each array task.
-* `results/`: Contains the generated CSV files with the optimization results, including required sample sizes, computation times, objective values, and estimated violation probabilities.
+* `results/`: Contains the generated CSV files with the optimization results, including computation times, objective values, and estimated violation probabilities.
 
 ## Citation
 
