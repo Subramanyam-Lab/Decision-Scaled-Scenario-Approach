@@ -100,7 +100,7 @@ Each benchmark folder should contain a `submit.sh` script designed to run the ex
    cd NormOpt
    ```
 
-2. **Important:** First, you should create a `precompile.sh` script with the template below. Before running, you must edit the `#SBATCH` directives (`partition`, `account`) and the `export` paths for your local Julia and solver installations. 
+2. **Important:** First, you should create a `submit.sh` script with the template below. Before running, you must edit the `#SBATCH` directives (`partition`, `account`) and the `export` paths for your local Julia and solver installations. 
 
    ```bash
    #!/bin/bash
